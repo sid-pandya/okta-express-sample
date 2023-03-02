@@ -48,12 +48,12 @@ axios
 
       // Set up passport
       passport.use('oidc', new Strategy({
-        issuer,
-        authorizationURL: authorization_endpoint,
-        tokenURL: token_endpoint,
-        userInfoURL: userinfo_endpoint,
-        clientID: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
+        issuer: `https://dev-13880501.okta.com/oauth2/${config.authorizationServerId}`,
+        authorizationURL: `https://dev-13880501.okta.com/oauth2/${config.authorizationServerId}/v1/authorize`,
+        tokenURL: `https://dev-13880501.okta.com/oauth2/${config.authorizationServerId}/v1/token`,
+        userInfoURL: `https://dev-13880501.okta.com/oauth2/${config.authorizationServerId}/v1/userinfo`,
+        clientID: '0oa8issg41OBeuQmU5d7',
+        clientSecret: 'Q9hE5dccEbESTKGCY40zq9m8muOkWq-mfU3cKEX5',
         callbackURL: 'http://localhost:3000/authorization-code/callback',
         scope: 'groups profile offline_access',
       }, (issuer, profile, context, idToken, accessToken, refreshToken, params, done) => {
